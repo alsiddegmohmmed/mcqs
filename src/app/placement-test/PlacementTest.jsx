@@ -16,7 +16,7 @@ export default function PlacementTest() {
 
   return (
     <div style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
-      <h1>Level Assessment</h1>
+      <h1>Level Assessmenrrrr</h1>
       <p>This test will assess your level in Mathematics and Physics. Each question is designed to evaluate your understanding of core concepts and problem-solving skills in these subjects.</p>
 
       {placementTestQuestions.map((q, index) => (
