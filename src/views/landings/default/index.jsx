@@ -9,17 +9,12 @@ import useDataThemeMode from '@/hooks/useDataThemeMode';
 // @data
 import {
   benefit,
-  clientele,
+
   cta4,
-  cta5,
-  faq,
+
   feature20,
-  feature21,
-  feature18,
+
   hero,
-  integration,
-  other,
-  pricing,
   testimonial
 } from './data';
 
@@ -56,14 +51,6 @@ export default function Main() {
           { importFunc: () => import('@/blocks/testimonial').then((module) => ({ default: module.Testimonial10 })), props: testimonial },
           // { importFunc: () => import('@/blocks/clientele').then((module) => ({ default: module.Clientele3 })), props: clientele },
           // { importFunc: () => import('@/blocks/pricing').then((module) => ({ default: module.Pricing9 })), props: pricing }
-        ]}
-        offset="200px"
-      />
-
-      <LazySection
-        sections={[
-          // { importFunc: () => import('@/blocks/cta').then((module) => ({ default: module.Cta5 })), props: cta5 },
-          // { importFunc: () => import('@/blocks/faq').then((module) => ({ default: module.Faq6 })), props: faq }
         ]}
         offset="200px"
       />

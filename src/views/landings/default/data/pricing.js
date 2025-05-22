@@ -1,7 +1,7 @@
 // @project
-import { BUY_NOW_URL, FREEBIES_URL } from '@/path';
+// import { , FREEBIES_URL } from '@/path';
 
-const linkProps = { target: '_blank', rel: 'noopener noreferrer' };
+// const linkProps = { target: '_blank', rel: 'noopener noreferrer' };
 
 export const pricing = {
   heading: 'The Affordable Unfair Advantage',
@@ -25,8 +25,8 @@ export const pricing = {
       active: false,
       featureTitle: 'Features',
       content: 'Learn more about the MIT',
-      contentLink: { children: 'license', href: 'https://mui.com/store/license/', ...linkProps },
-      exploreLink: { children: 'Get Started With Free', href: FREEBIES_URL, ...linkProps },
+      // contentLink: { children: 'license', href: 'https://mui.com/store/license/', ...linkProps },
+      // exploreLink: { children: 'Get Started With Free', href: FREEBIES_URL, ...linkProps },
       featuresID: [1, 3]
     },
     {
@@ -35,8 +35,8 @@ export const pricing = {
       price: 69,
       featureTitle: 'Features',
       content: 'Learn more about the Pro',
-      contentLink: { children: 'license', href: 'https://mui.com/store/license/', ...linkProps },
-      exploreLink: { children: 'Get Started With Pro', href: BUY_NOW_URL, ...linkProps },
+      // contentLink: { children: 'license', href: 'https://mui.com/store/license/', ...linkProps },
+      // exploreLink: { children: 'Get Started With Pro', href: , ...linkProps },
       featuresID: [2, 4, 5, 6, 7, 8, 9, 10]
     }
   ]

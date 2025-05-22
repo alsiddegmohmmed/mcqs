@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import branding from '@/branding.json';
 import { Themes } from '@/config';
 import { MegaMenuType } from '@/enum';
-import { ADMIN_PATH, BUY_NOW_URL, DOCS_URL, PAGE_PATH, PRIVIEW_PATH } from '@/path';
+import { ADMIN_PATH,  DOCS_URL, PAGE_PATH, PRIVIEW_PATH } from '@/path';
 
 const linkProps = { target: '_blank', rel: 'noopener noreferrer' };
 
