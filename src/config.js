@@ -3,6 +3,7 @@ import { Archivo, Figtree, Roboto } from 'next/font/google';
 
 export let Themes;
 
+export const APP_DEFAULT_PATH = '/';
 (function (Themes) {
   Themes['THEME_DEFAULT'] = 'default';
   Themes['THEME_CRM'] = 'crm';

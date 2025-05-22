@@ -41,7 +41,7 @@ export default function ProPage({ image }) {
             </Typography>
             <Typography variant="body1" color="textSecondary" sx={{ mb: 3, color: 'grey.700', textAlign: 'center' }}>
               <Link href="https://www.saasable.io/" target="_blank" underline="hover" component={NextLink}>
-                Check out SaasAble PRO
+                Check out StudySmart PRO
               </Link>{' '}
               which offers updated components, auto layout, and Figma new variables, complete with dark mode!
             </Typography>

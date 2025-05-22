@@ -1,6 +1,6 @@
 // @project
 import branding from '@/branding.json';
-import { Benefit5 } from '@/blocks/benefit';
+import { Benefit5 } from '@/blocks/benefitgcgh';
 
 /***************************  BENEFIT 5 - DATA  ***************************/
 
