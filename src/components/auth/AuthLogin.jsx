@@ -8,8 +8,11 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 import SvgIcon from '@/components/SvgIcon';
-import { Grid } from '@mui/material';
 import NextLink from 'next/link';
+import { supabase } from '@/lib/supabaseClient';
+import { useRouter } from 'next/navigation';
+
+
 const SocialButton = ({ icon, label }) => (
   <Button
     fullWidth
@@ -31,6 +34,32 @@ const SocialButton = ({ icon, label }) => (
 
 export default function AuthLogin() {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('test@gmail.com');
+  const [password, setPassword] = useState('12345678');
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(null);
+
+const router = useRouter();
+
+const handleLogin = async () => {
+  setLoading(true);
+  setError(null);
+
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) {
+    setError(error.message);
+    setLoading(false);
+    return;
+  }
+
+  // Optional: redirect to dashboard or practice page
+  router.push('/'); 
+};
+
 
   return (
     <Box
@@ -87,6 +116,8 @@ export default function AuthLogin() {
               fullWidth
               label="Email"
               placeholder="your.email@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               sx={{
                 '& .MuiOutlinedInput-root': {
                   '& fieldset': {
@@ -99,6 +130,8 @@ export default function AuthLogin() {
               fullWidth
               type={showPassword ? 'text' : 'password'}
               label="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               sx={{
                 '& .MuiOutlinedInput-root': {
                   '& fieldset': {
@@ -136,7 +169,9 @@ export default function AuthLogin() {
               fullWidth
               size="large"
               variant="contained"
-              sx={{ 
+              onClick={handleLogin}
+              disabled={loading}
+              sx={{
                 py: 1.5,
                 bgcolor: 'primary.main',
                 '&:hover': {
@@ -144,8 +179,14 @@ export default function AuthLogin() {
                 },
               }}
             >
-              Sign In
+              {loading ? 'Signing In...' : 'Sign In'}
             </Button>
+            {error && (
+              <Typography color="error" sx={{ mt: 2 }}>
+                {error}
+              </Typography>
+            )}
+
           </Stack>
 
           {/* Sign Up Link */}

@@ -1,5 +1,9 @@
 import PlacementTest from './PlacementTest.jsx';
-
+import AuthGuard from '@/components/auth/AuthGuard';
 export default function PlacementTestPage() {
-  return <PlacementTest />;
+  return (
+    <AuthGuard>
+      <PlacementTest />
+    </AuthGuard>
+  );
 }

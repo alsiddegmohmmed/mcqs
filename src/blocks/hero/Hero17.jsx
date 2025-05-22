@@ -226,22 +226,15 @@ export default function Hero17({ chip, headLine, captionLine, primaryBtn, videoS
             }}
             style={{ scale }}
           >
-            <GraphicsCard sx={{ border: '5px solid', borderColor: 'grey.300' }}>
-              <video
-                playsInline
-                ref={videoRef}
-                width="100%"
-                height="100%"
-                style={{ display: 'flex', objectFit: 'cover' }}
-                preload="metadata"
-                autoPlay={false}
-                loop={true}
-                muted={true}
-                poster={videoThumbnail}
-              >
-                <source src={videoSrc} type="video/mp4" />
-              </video>
-            </GraphicsCard>
+           <GraphicsCard sx={{ border: '5px solid', borderColor: 'grey.300' }}>
+  <img
+    src={videoThumbnail}
+    alt="MCQ Practice Preview"
+    width="100%"
+    height="100%"
+    style={{ display: 'flex', objectFit: 'cover' }}
+  />
+</GraphicsCard>
           </motion.div>
         </Box>
       </ContainerWrapper>

@@ -1,0 +1,21 @@
+subject,difficulty,question,options,correct,placement
+math,medium,"What is the derivative of f(x) = 3x^2 - 2x + 5?","[""6x - 2"",""3x - 2"",""6x + 2"",""3x + 2""]","6x - 2",true
+physics,easy,"A car accelerates uniformly from rest to 20 m/s in 5 s. What is its acceleration?","[""2 m/s^2"",""4 m/s^2"",""5 m/s^2"",""10 m/s^2""]","4 m/s^2",true
+math,easy,"What is 7 × 8?","[""54"",""56"",""58"",""64""]","56",true
+math,easy,"Solve for x: 2x + 3 = 7","[""x = 1"",""x = 2"",""x = 3"",""x = 4""]","x = 2",true
+math,medium,"∫ x dx = ?","[""x²/2 + C"",""x² + C"",""2x + C"",""ln x + C""]","x²/2 + C",true
+math,medium,"If f(x)=x² and g(x)=2x, what is (f ∘ g)(x)?","[""4x²"",""2x²"",""x² + 2x"",""x²""]","4x²",true
+math,hard,"Limit: limₓ→0 (sin x)/x = ?","[""0"",""1"",""∞"",""-1""]","1",true
+math,hard,"What is the determinant of [[1,2],[3,4]]?","[""-2"",""2"",""5"",""-5""]","-2",true
+math,hard,"If A = πr², what is dA/dr?","[""πr"",""2πr"",""π"",""r²""]","2πr",true
+math,easy,"What is the square root of 144?","[""10"",""11"",""12"",""13""]","12",true
+physics,easy,"Speed = distance / time. What is the speed if a car travels 100 km in 2 h?","[""25 km/h"",""50 km/h"",""100 km/h"",""200 km/h""]","50 km/h",true
+physics,medium,"Newton’s Second Law states:","[""F = ma"",""E = mc²"",""p = mv"",""V = IR""]","F = ma",true
+physics,medium,"What is the unit of electric current?","[""Volt"",""Ohm"",""Ampere"",""Coulomb""]","Ampere",true
+physics,medium,"Which particle has a negative charge?","[""Proton"",""Neutron"",""Electron"",""Photon""]","Electron",true
+physics,hard,"Light bends when passing from air into water because of:","[""Diffraction"",""Reflection"",""Refraction"",""Interference""]","Refraction",true
+physics,hard,"The half-life of a radioactive isotope is the time required for:","[""All atoms to decay"",""Half the atoms to decay"",""Temperature to halve"",""Mass to double""]","Half the atoms to decay",true
+physics,hard,"What is the escape velocity from Earth (~)?","[""4 km/s"",""8 km/s"",""11.2 km/s"",""16 km/s""]","11.2 km/s",true
+physics,easy,"Which of these is a vector quantity?","[""Speed"",""Distance"",""Energy"",""Velocity""]","Velocity",true
+physics,medium,"Ohm’s Law can be written as:","[""V = IR"",""P = IV"",""F = ma"",""E = hf""]","V = IR",true
+physics,easy,"Gravitational acceleration (g) near Earth’s surface is approximately:","[""4.9 m/s²"",""6.4 m/s²"",""9.8 m/s²"",""12 m/s²""]","9.8 m/s²",true

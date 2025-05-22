@@ -10,6 +10,11 @@ import { useState } from 'react';
 import SvgIcon from '@/components/SvgIcon';
 import { Grid } from '@mui/material';
 import NextLink from 'next/link';
+import { supabase } from '@/lib/supabaseClient';
+import { useRouter } from 'next/navigation';
+
+
+
 
 const SocialButton = ({ icon, label }) => (
   <Button
@@ -32,6 +37,31 @@ const SocialButton = ({ icon, label }) => (
 
 export default function AuthRegister() {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(null);
+
+const router = useRouter();
+
+
+const handleSignup = async () => {
+  setLoading(true);
+  setError(null);
+
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+  });
+
+  if (error) {
+    setError(error.message);
+    setLoading(false);
+    return;
+  }
+
+};
+
 
   return (
     <Box
@@ -88,6 +118,8 @@ export default function AuthRegister() {
               fullWidth
               label="Email"
               placeholder="your.email@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               sx={{
                 '& .MuiOutlinedInput-root': {
                   '& fieldset': {
@@ -100,6 +132,8 @@ export default function AuthRegister() {
               fullWidth
               type={showPassword ? 'text' : 'password'}
               label="Password"
+              value={password}
+  onChange={(e) => setPassword(e.target.value)}
               sx={{
                 '& .MuiOutlinedInput-root': {
                   '& fieldset': {
@@ -108,30 +142,35 @@ export default function AuthRegister() {
                 },
               }}
               InputProps={{
-                endAdornment: (
-                  <IconButton
-                    onClick={() => setShowPassword(!showPassword)}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                  </IconButton>
-                ),
-              }}
+    endAdornment: (
+      <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+        {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+      </IconButton>
+    ),
+  }}
             />
             <Button
-              fullWidth
-              size="large"
-              variant="contained"
-              sx={{ 
-                py: 1.5,
-                bgcolor: 'primary.main',
-                '&:hover': {
-                  bgcolor: 'primary.dark',
-                },
-              }}
-            >
-              Sign Up
-            </Button>
+            fullWidth
+            size="large"
+            variant="contained"
+            onClick={handleSignup}
+            disabled={loading}
+            sx={{
+              py: 1.5,
+              bgcolor: 'primary.main',
+              '&:hover': {
+                bgcolor: 'primary.dark',
+              },
+            }}
+          >
+            {loading ? 'Signing Up...' : 'Sign Up'}
+          </Button>
+          {error && (
+            <Typography color="error" sx={{ mt: 2 }}>
+              {error}
+            </Typography>
+          )}
+
           </Stack>
 
           {/* Sign Up Link */}

@@ -67,7 +67,7 @@ export default [
       'react/display-name': 'off',
 
       'import/no-unresolved': [
-        'off',
+        'on',
         {
           caseSensitive: false
         }

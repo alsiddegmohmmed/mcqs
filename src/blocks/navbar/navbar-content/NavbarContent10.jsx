@@ -6,21 +6,31 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-
+import Button from '@mui/material/Button';
 // @project
 import ButtonAnimationWrapper from '@/components/ButtonAnimationWrapper';
 import ContainerWrapper from '@/components/ContainerWrapper';
 import Logo from '@/components/logo';
 import { MenuPopper, NavMenu, NavMenuDrawer, NavPrimaryButton, NavSecondaryButton } from '@/components/navbar';
 import SvgIcon from '@/components/SvgIcon';
-
+import { useAuth } from '@/contexts/AuthContext';
+import { supabase } from '@/lib/supabaseClient';
+import { useRouter } from 'next/navigation';
 /***************************  NAVBAR - CONTENT 10  ***************************/
 
 export default function NavbarContent10({ landingBaseUrl, navItems, primaryBtn, secondaryBtn }) {
   const theme = useTheme();
-
+  const { user } = useAuth();
   const downMD = useMediaQuery(theme.breakpoints.down('md'));
   const downSM = useMediaQuery(theme.breakpoints.down('sm'));
+
+
+const router = useRouter();
+
+const handleLogout = async () => {
+  await supabase.auth.signOut();
+  router.push('/auth/login');
+};
 
   return (
     <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between', width: 1 }}>
@@ -33,10 +43,23 @@ export default function NavbarContent10({ landingBaseUrl, navItems, primaryBtn, 
       <Stack direction="row" sx={{ gap: { xs: 1, md: 1.5 } }}>
         {!downSM && (
           <>
-            <NavSecondaryButton {...secondaryBtn} />
+            {/* <NavSecondaryButton {...secondaryBtn} />
             <ButtonAnimationWrapper>
               <NavPrimaryButton {...primaryBtn} />
-            </ButtonAnimationWrapper>
+            </ButtonAnimationWrapper> */}
+            {!user ? (
+  <>
+    <NavSecondaryButton href="/auth/login">Sign In</NavSecondaryButton>
+    <ButtonAnimationWrapper>
+      <NavPrimaryButton href="/auth/register">Sign Up</NavPrimaryButton>
+    </ButtonAnimationWrapper>
+  </>
+) : (
+  <Button variant="text" color="error" onClick={handleLogout}>
+    Logout
+  </Button>
+)}
+
           </>
         )}
         {downMD && (
@@ -57,11 +80,21 @@ export default function NavbarContent10({ landingBaseUrl, navItems, primaryBtn, 
                 )}
                 {downSM && (
                   <Stack direction="row" sx={{ justifyContent: 'space-between', gap: 1, px: 5, py: 2.5, mx: -5, bgcolor: 'grey.100' }}>
-                    <NavSecondaryButton {...secondaryBtn} />
-                    <ButtonAnimationWrapper>
-                      <NavPrimaryButton {...primaryBtn} />
-                    </ButtonAnimationWrapper>
+                  {!user ? (
+  <>
+    <NavSecondaryButton href="/auth/login">Sign In</NavSecondaryButton>
+    <ButtonAnimationWrapper>
+      <NavPrimaryButton href="/auth/register">Sign Up</NavPrimaryButton>
+    </ButtonAnimationWrapper>
+  </>
+) : (
+  <Button variant="text" color="error" onClick={handleLogout}>
+    Logout
+  </Button>
+)}
+
                   </Stack>
+
                 )}
               </ContainerWrapper>
             </MenuPopper>
